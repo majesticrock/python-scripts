@@ -13,6 +13,8 @@
 #etc
 #
 #You should have an equal amount of colums in every row. The rows should not end with your delimiter.
+#If you want to use multicolumns you can of course do so. In this case they of course count as that number of columns as
+#restrictions comes from latex and not from this script.
 #
 #This script probably won't work on Windows systems. Install a linux distribution.
 #
@@ -42,7 +44,7 @@ def csv2textable(pathToFile, caption, label, format, delimiter=";"):
         for i in range(len(content)):
             for j in range(len(content[i])):
                 if(i == 0):
-                    f.write("{" + content[i][j] + "} ")
+                    f.write(content[i][j] + " ")
                     if(j == (len(content[i]) - 1)):
                         f.write("\\\\\n")
                         f.write("\\midrule\n")
