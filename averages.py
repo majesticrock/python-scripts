@@ -12,20 +12,21 @@ def average(pathToFile, delimiter=";"):
     n = len(content)
     #Set this to the line where your values start
     #remember that arrays start at 0 not at 1
-    first_index = 1 
+    first_index = 1
+    #Set this to the column where your values are
+    col = 0
     avg = 0
     evg_err = 0
 
     for i in range(first_index, n):
-        avg += content[i]
+        avg += float(content[i][col])
     
     avg /= n
 
     for i in range(first_index, n):
-        avg_err = (content[i] - avg)**2
+        avg_err = (float(content[i][col]) - avg)**2
 
     avg_err = np.sqrt(avg_err)
     avg_err /= np.sqrt(n * (n-1))
 
     return [avg, avg_err]
-
