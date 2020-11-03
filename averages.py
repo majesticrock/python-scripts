@@ -16,7 +16,7 @@ def average(pathToFile, delimiter=";"):
     #Set this to the column where your values are
     col = 0
     avg = 0
-    evg_err = 0
+    avg_err = 0
 
     for i in range(first_index, n):
         avg += float(content[i][col])
@@ -24,7 +24,7 @@ def average(pathToFile, delimiter=";"):
     avg /= (n-first_index)
 
     for i in range(first_index, n):
-        avg_err = (float(content[i][col]) - avg)**2
+        avg_err += (float(content[i][col]) - avg)**2
 
     avg_err = np.sqrt(avg_err)
     avg_err /= np.sqrt((n-first_index) * (n-1-first_index))
